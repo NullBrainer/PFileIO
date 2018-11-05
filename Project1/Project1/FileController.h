@@ -1,7 +1,5 @@
 #ifndef FCONTROLLER_HEADER
 #define FCONTROLLER_HEADER
-
-#include<stdio.h>
 #include "FileRead.h"
 #include "FileWrite.h"
 #include <memory>
@@ -20,7 +18,8 @@ public:
 	void Write(std::string);
 
 	/*A function that calls the read function from FileReader class*/
-	void Read();
+	std::vector<char> Read();
+	std::vector<int> GetBinary();
 private:
 	std::unique_ptr<FileWriter> writer;
 	std::unique_ptr<FileReader> reader;

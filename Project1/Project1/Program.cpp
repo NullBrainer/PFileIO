@@ -1,5 +1,6 @@
 #include "Program.h"
-
+#include <vector>
+#include <stdio.h>
 Program::Program()
 {
 }
@@ -22,7 +23,19 @@ void Program::Run()
 	fc->Write(content);
 
 	std::cout << "The File says: ";
-	fc->Read();
+	std::vector<char> fileinfo = fc->Read();
+	std::vector<int> filenumbers = fc->GetBinary();
+
+	for (int i = 0; i < fileinfo.size(); i++)
+	{
+		std::cout << fileinfo[i];
+	}
+	std::cout << "\nFile in numbers: ";
+	for (int i = 0; i < filenumbers.size(); i++)
+	{
+		std::cout << filenumbers[i];
+	}
+
 	char c;
 	std::cin >> c;
 

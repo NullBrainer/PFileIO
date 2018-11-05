@@ -16,12 +16,18 @@ FileController::~FileController()
 {
 }
 
-void FileController::Read()
+std::vector<char> FileController::Read()
 {
-	reader->ReadFile(FileName);
+	return reader->ReadFile(FileName);
+}
+
+std::vector<int> FileController::GetBinary() 
+{
+	return reader->ReadBinary(FileName);
 }
 
 void FileController::Write(std::string content)
 {
 	writer->WriteToFile(FileName, content);
+
 }

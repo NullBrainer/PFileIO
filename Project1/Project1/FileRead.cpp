@@ -8,16 +8,17 @@ FileReader::~FileReader()
 {
 }
 
-void FileReader::ReadFile(std::string filename)
+std::vector<char> FileReader::ReadFile(std::string filename)
 {
+	std::vector<char>characters;
 
-	std::ifstream File;
 	try {
-		File.open(filename);
+		std::ifstream File;
+		File.open(filename, std::ios::binary | std::ios::in);
 		char c;
 		File >> c;
 		while (!File.eof()) {
-			std::cout << c;//should not print out, must only return information
+			characters.push_back(c);
 			File >> c;
 		}		
 
@@ -27,6 +28,29 @@ void FileReader::ReadFile(std::string filename)
 	catch (std::ifstream::failure e) {
 		std::cerr << "File Error";
 	}
+	return characters;
+}
 
+
+std::vector<int> FileReader::ReadBinary(std::string filename)
+{
+	std::vector<int>data;
+	try {
+		std::ifstream File;
+
+		File.open(filename, std::ios::binary | std::ios::in);
+		char c;
+		File >> c;
+		while (!File.eof()) {
+			data.push_back(c);
+			File >> c;
+		}
+
+	}
+	catch (std::ifstream::failure e) {
+		std::cerr << "File Error";
+	}
+
+	return data;
 }
 
