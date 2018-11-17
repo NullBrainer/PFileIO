@@ -1,0 +1,10 @@
+1) Create an encoding matrix
+2) Multiply encoding matrix by another matrix composed of character values to get the encrypted matrix
+3) Find the inverse of the encoding matrix to decrypt the encrypted matrix
+    a) Find the determinant of the encoding matrix
+    b) Transpose the encoding matrix
+    c) Find the adjugate matrix from the transposed matrix
+    d) Divide each number in the adjugate matrix by the determinant to find the inverse of the encoding matrix (decoding matrix)
+4) Turn the encrypted matrix into bytes
+5) Choose a position and insert those bytes at that position
+6) The key will consist of the sequence of positions we inserted at, and the number of bytes inserted at that location
