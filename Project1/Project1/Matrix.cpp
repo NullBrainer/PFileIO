@@ -115,7 +115,7 @@ Matrix Matrix::adjugate(Matrix m) {
 }
 
 Matrix Matrix::inverse(Matrix m) {
-	Matrix adjugateMatrix = Matrix::transpose(Matrix::minors(m));
+	Matrix adjugateMatrix = Matrix::adjugate(m);
 	double determ = Matrix::determinant(m);
 	std::vector<std::vector<double>> inv = adjugateMatrix.getMatrix();
 	for (int i = 0; i < inv.size(); i++) {
