@@ -47,8 +47,8 @@ std::vector<double> MessageEncoder::encode(std::string phrase, Key& k) {
 		std::vector<std::vector<double>> encodedLettersMatrix_ = encodedLettersMatrix.getMatrix();
 
 		// Now put the encoded values in the newly encoded matrix into encodedVals
-		for (double num : encodedLettersMatrix_[0]) {
-			encodedVals.push_back(num);
+		for (std::vector<double> num : encodedLettersMatrix_) {
+			encodedVals.push_back(num[0]);
 		}
 	}
 	Matrix inverse = Matrix::inverse(encodingMatrix);
