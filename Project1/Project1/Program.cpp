@@ -1,6 +1,13 @@
 #include "Program.h"
 #include <vector>
 #include <stdio.h>
+#include "Key.h"
+#include "MessageEncoder.h"
+#include "ImageEncoder.h"
+#include "EasyBMP.h"
+#include "ImageDecoder.h"
+#include "MessageDecoder.h"
+
 Program::Program()
 {
 }
@@ -11,32 +18,23 @@ Program::~Program()
 
 void Program::Run()
 {
-	std::string filename;
-	std::cout << "Enter name of new file to make\n";
-	std::cin >> filename;
+	std::string filename = "picture.bmp";
+	BMP image;
+	image.ReadFromFile(filename.c_str());
+	std::string message = "Hello my name is RJ. I have been working on this for too long and I'm getting really tired. So it would mean a lot to me if this worked out.";
+	
+	Key key;
+	MessageEncoder me;
+	ImageEncoder ie;
+	std::vector<double> encodedVals;
+	encodedVals = me.encode(message, key);
+	ie.encode(encodedVals, image, key); 
+	image.WriteToFile("PLEASELETTHISWORK.bmp");
 
-	std::unique_ptr<FileController>fc(new FileController(filename));
-	std::cout << "Write stuff into the file: ";
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	std::string content;
-	std::getline(std::cin, content);
-	fc->Write(content);
-
-	std::cout << "The File says: ";
-	std::vector<char> fileinfo = fc->Read();
-	std::vector<int> filenumbers = fc->GetBinary();
-
-	for (int i = 0; i < fileinfo.size(); i++)
-	{
-		std::cout << fileinfo[i];
-	}
-	std::cout << "\nFile in numbers: ";
-	for (int i = 0; i < filenumbers.size(); i++)
-	{
-		std::cout << filenumbers[i];
-	}
-
-	char c;
-	std::cin >> c;
-
+	BMP image2;
+	image2.ReadFromFile("PLEASELETTHISWORK.bmp");
+	ImageDecoder id;
+	std::vector<double> scrambledValues = id.decode(image2, key);
+	MessageDecoder md;
+	std::string decodedMesage = md.decode(scrambledValues, key);
 }
