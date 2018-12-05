@@ -31,3 +31,7 @@ void FileController::Write(std::string content)
 	writer->WriteToFile(FileName, content);
 
 }
+
+void FileController::setFileName(std::string fileName) {
+	this->FileName = fileName;
+}
