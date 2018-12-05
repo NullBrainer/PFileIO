@@ -7,6 +7,7 @@
 #include "EasyBMP.h"
 #include "ImageDecoder.h"
 #include "MessageDecoder.h"
+#include <iostream>
 
 Program::Program()
 {
@@ -22,7 +23,8 @@ void Program::Run()
 	BMP image;
 	image.ReadFromFile(filename.c_str());
 	std::string message = "Hello my name is RJ. I have been working on this for too long and I'm getting really tired. So it would mean a lot to me if this worked out.";
-	
+	std::cout << "Message to encrypt: " << message << std::endl;
+
 	Key key;
 	MessageEncoder me;
 	ImageEncoder ie;
@@ -36,5 +38,6 @@ void Program::Run()
 	ImageDecoder id;
 	std::vector<double> scrambledValues = id.decode(image2, key);
 	MessageDecoder md;
-	std::string decodedMesage = md.decode(scrambledValues, key);
+	std::string decodedMessage = md.decode(scrambledValues, key);
+	std::cout << "Decoded message: " << decodedMessage << std::endl;
 }
