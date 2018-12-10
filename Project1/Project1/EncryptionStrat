@@ -8,3 +8,22 @@
 4) Turn the encrypted matrix into bytes
 5) Choose a position and insert those bytes at that position
 6) The key will consist of the sequence of positions we inserted at, and the number of bytes inserted at that location
+
+
+NxN RNGMatrix * message matrix of size N*1 = product matrix
+
+KeyFileClass
+-Positions of embedded bytes
+-Size of embedded bytes
+-Inverse of Given Genereated Matrix
+
+Determining placement of encrpyted message
+From size of encrpyted message
+while not in header and within Range of image size
+replace bytes randomly
+check if :
+not changed
+within range
+not in header range
+
+

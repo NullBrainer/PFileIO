@@ -5,7 +5,7 @@ FileController::FileController()
 {
 }
 
-FileController::FileController(std::string filename) : FileName{ filename }, writer{}
+FileController::FileController(std::string filename) : FileName{ filename }
 {
 	writer = std::make_unique<FileWriter>(FileWriter());
 	reader = std::make_unique<FileReader>(FileReader());
@@ -30,4 +30,14 @@ void FileController::Write(std::string content)
 {
 	writer->WriteToFile(FileName, content);
 
+}
+
+std::string FileController::GetFileName()
+{
+	return FileName;
+}
+
+void FileController::SetFileName(std::string newname)
+{
+	this->FileName = newname;
 }

@@ -23,7 +23,10 @@ public:
 private:
 	std::unique_ptr<FileWriter> writer;
 	std::unique_ptr<FileReader> reader;
+	std::string GetFileName();
+	void SetFileName(std::string);
 	std::string FileName;
+
 };
 
 

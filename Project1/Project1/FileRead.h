@@ -20,6 +20,7 @@ public:
 	/*Returns a vector of integers used to display the file as integers*/
 	std::vector<int> ReadBinary(std::string);
 
+
 private:
 };
 
