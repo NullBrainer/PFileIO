@@ -14,7 +14,7 @@ public:
 	/*Creates a output filestream and writes to the file
 	filename is used to set the file name
 	content is used to write the string into the file*/
-	void WriteToFile(std::string,std::string);
+	virtual void WriteToFile(std::string,std::string);
 
 private:
 

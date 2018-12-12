@@ -32,12 +32,11 @@ void FileController::Write(std::string content)
 
 }
 
-std::string FileController::GetFileName()
-{
-	return FileName;
+void FileController::SetFileName(std::string fileName) {
+	this->FileName = fileName;
 }
 
-void FileController::SetFileName(std::string newname)
+std::string FileController::GetFileName()
 {
-	this->FileName = newname;
+	return std::string();
 }

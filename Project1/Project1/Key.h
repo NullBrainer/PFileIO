@@ -2,10 +2,11 @@
 #define KEY_H
 #include "Matrix.h"
 #include <list>
+#include <tuple>
 class Key {
 public:
-	std::list<std::pair<int, int>> getPositions() {
-		return posLens;
+	std::list<std::tuple<int, int, int>> getPositionsQuotients() {
+		return posQuotient;
 	}
 	Matrix getInverseMatrix() {
 		return inverseMatrix;
@@ -15,12 +16,13 @@ public:
 		inverseMatrix = m;
 	}
 
-	void setPosLens(std::list<std::pair<int, int>> p) {
-		posLens = p;
+	void setPosQuotient(std::list<std::tuple<int, int, int>> p) {
+		posQuotient = p;
 	}
 
 private:
-	std::list<std::pair<int, int>> posLens;
+	// TAKE IN TUPLE FOR X POS, Y POS, THEN QUOTIENT
+	std::list<std::tuple<int, int, int>> posQuotient;
 	Matrix inverseMatrix;
 
 };

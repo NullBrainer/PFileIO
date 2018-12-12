@@ -20,11 +20,11 @@ public:
 	/*A function that calls the read function from FileReader class*/
 	std::vector<char> Read();
 	std::vector<int> GetBinary();
+	void SetFileName(std::string);
+	std::string GetFileName();
 private:
 	std::unique_ptr<FileWriter> writer;
 	std::unique_ptr<FileReader> reader;
-	std::string GetFileName();
-	void SetFileName(std::string);
 	std::string FileName;
 
 };

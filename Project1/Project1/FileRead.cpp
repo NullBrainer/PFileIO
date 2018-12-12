@@ -16,12 +16,9 @@ std::vector<char> FileReader::ReadFile(std::string filename)
 		std::ifstream File;
 		File.open(filename, std::ios::binary | std::ios::in);
 		char c;
-		File >> c;
-		while (!File.eof()) {
+		while (File.get(c)) {
 			characters.push_back(c);
-			File >> c;
-		}		
-
+		}
 
 		File.close();
 	}
@@ -40,10 +37,9 @@ std::vector<int> FileReader::ReadBinary(std::string filename)
 
 		File.open(filename, std::ios::binary | std::ios::in);
 		char c;
-		File >> c;
-		while (!File.eof()) {
+
+		while (File.get(c)) {
 			data.push_back(c);
-			File >> c;
 		}
 
 	}
