@@ -9,20 +9,48 @@ Program::~Program()
 }
 
 void Program::Run()
-{
+{	
+	EncryptionHandler::getInstance().encrypt("Encrypted message", "picture.bmp");
+	std::string message = EncryptionHandler::getInstance().decrypt("newpicture.bmp", "KEY.KEY");
+	
+	/*
+	ImageEncoder IE;
+	MessageEncoder ME;
+	ImageDecoder ID;
+	MessageDecoder MD;
+	std::string fileName = "picture.bmp";
+	std::string message = "Deep in thought.";
+	BMP image;
+	image.ReadFromFile(fileName.c_str());
+	Key key_nought;
+	std::vector<double> encodedVals = ME.encode(message, key_nought);
+	IE.encode(encodedVals, image, key_nought);
+	image.WriteToFile("newPicture.bmp");
+	KeyWriter KW;
+	KW.WriteKeyToFile("KEY", key_nought);
+
+	BMP newImage;
+	newImage.ReadFromFile("newPicture.bmp");
+	KeyReader KR;
+	Key key_prime = KR.ReadFromFile("KEY.KEY");
+	std::vector<double> decodedVals = ID.decode(newImage, key_prime);
+	std::string decodedMessage = MD.decode(decodedVals, key_prime);
+	std::cout << decodedMessage << std::endl;
+	*/
 	/*
 	make keyfile
 	read imgfile
 	get bytes
 
 	*/
+	/*
 	std::string filename = "keyfile.KEY";
 	std::string imgfile = "image.png";
 	std::string message = "Some hidden message";
 	std::unique_ptr<FileController>fc(new FileController(imgfile));
 	imgbytes = fc->Read();
 	Encode(message);
-
+	*/
 
 	/*
 	create matrix
@@ -35,7 +63,7 @@ void Program::Run()
 	std::getline(std::cin, content);
 	fc->Write(content);
 	*/
-
+	/*
 	std::cout << "The File says: ";
 	std::vector<char> fileinfo = fc->Read();
 	std::vector<int> filenumbers = fc->GetBinary();
@@ -44,7 +72,7 @@ void Program::Run()
 	{
 		std::cout << fileinfo[i];
 	}
-
+	*/
 	/*
 	std::cout << "\nFile in numbers: ";
 	for (int i = 0; i < 50; i++)
@@ -52,9 +80,11 @@ void Program::Run()
 		std::cout << filenumbers[i];
 	}
 	*/
-
+	/*
 	char c;
 	std::cin >> c;
+	*/
+	
 }
 
 void Program::Encode( std::string message)

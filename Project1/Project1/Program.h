@@ -7,10 +7,16 @@
 #include "Key.h"
 #include "MessageEncoder.h"
 #include "MessageDecoder.h"
+#include "ImageDecoder.h"
+#include "ImageEncoder.h"
 #include "ThreeByThreeMatrixBuilder.h"
+#include "KeyReader.h"
+#include "KeyWriter.h"
 #include <vector>
 #include <stdio.h>
 #include <random>
+#include "EasyBMP.h"
+#include "Encryption.h"
 class Program
 {
 public:
