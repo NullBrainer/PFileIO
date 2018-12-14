@@ -11,8 +11,9 @@ KeyWriter::~KeyWriter()
 void KeyWriter::WriteKeyToFile(std::string filename, Key kobj)
 {
 	std::string info = ParseKey(kobj);
-	writer->WriteToFile(filename+".KEY",info);
-
+	filename.append(".KEY");
+	//writer->WriteToFile(filename,info);
+	FileWriter::WriteToFile(filename, info);
 }
 
 std::string KeyWriter::ParseKey(Key kobj)
@@ -64,4 +65,4 @@ std::string KeyWriter::ParsePositions(Key kobj)
 	return result;
 }
 
-
+ 
